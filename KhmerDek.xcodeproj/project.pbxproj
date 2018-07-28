@@ -7,21 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		409D6E2733C392272958A751 /* Pods_KhmerDek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A75EABCCAF912EBF8722F078 /* Pods_KhmerDek.framework */; };
+		B7158F212108F17700E7CAC2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7158F082108F17600E7CAC2 /* Info.plist */; };
+		B7158F222108F17700E7CAC2 /* phonenumber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7158F102108F17700E7CAC2 /* phonenumber.storyboard */; };
+		B7158F232108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */; };
+		B7158F262108F17700E7CAC2 /* KETColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F172108F17700E7CAC2 /* KETColorUtils.swift */; };
+		B7158F272108F17700E7CAC2 /* KETConstantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F192108F17700E7CAC2 /* KETConstantViewController.swift */; };
+		B7158F282108F17700E7CAC2 /* KETNavigationBarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F1B2108F17700E7CAC2 /* KETNavigationBarUtils.swift */; };
+		B7158F4021090BBB00E7CAC2 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = B7158F3B21090BBB00E7CAC2 /* .gitkeep */; };
+		B7158F4121090BBB00E7CAC2 /* CGPoint+JK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F3C21090BBB00E7CAC2 /* CGPoint+JK.swift */; };
+		B7158F4221090BBB00E7CAC2 /* NSAttributedString+JK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F3D21090BBB00E7CAC2 /* NSAttributedString+JK.swift */; };
+		B7158F4321090BBB00E7CAC2 /* SteppedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F3E21090BBB00E7CAC2 /* SteppedProgressBar.swift */; };
+		B7158F4421090BBB00E7CAC2 /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F3F21090BBB00E7CAC2 /* UIImage+UIColor.swift */; };
+		B7158F47210918D800E7CAC2 /* KETRegisterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F46210918D800E7CAC2 /* KETRegisterHelper.swift */; };
+		B7158F4B21094AB500E7CAC2 /* KETSMSCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F4921094AB500E7CAC2 /* KETSMSCodeViewController.swift */; };
+		B7158F4C21094AB500E7CAC2 /* smscode.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7158F4A21094AB500E7CAC2 /* smscode.xib */; };
+		B7719284210A38090074F8E5 /* phonedriver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7719282210A38090074F8E5 /* phonedriver.storyboard */; };
+		B7719287210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */; };
+		B771928C210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771928A210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift */; };
+		B771928D210A3D5F0074F8E5 /* refcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B771928B210A3D5F0074F8E5 /* refcode.storyboard */; };
+		B771928F210A3D6E0074F8E5 /* driver_information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B771928E210A3D6E0074F8E5 /* driver_information.storyboard */; };
+		B7719291210A3D8A0074F8E5 /* KETDriverInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7719290210A3D8A0074F8E5 /* KETDriverInformationViewController.swift */; };
+		B7719294210A44DF0074F8E5 /* vechicle_information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7719293210A44DF0074F8E5 /* vechicle_information.storyboard */; };
+		B7719296210A451B0074F8E5 /* KETVechicleInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7719295210A451B0074F8E5 /* KETVechicleInformationViewController.swift */; };
+		B77CBD56210AEC93005040A4 /* KETDoumentDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD55210AEC93005040A4 /* KETDoumentDriverViewController.swift */; };
+		B77CBD58210AECA9005040A4 /* document.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77CBD57210AECA9005040A4 /* document.storyboard */; };
+		B77CBD5B210B5676005040A4 /* country_code.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77CBD5A210B5676005040A4 /* country_code.storyboard */; };
+		B77CBD5D210B569D005040A4 /* KETCountryCodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD5C210B569D005040A4 /* KETCountryCodePopupViewController.swift */; };
+		B77CBD60210B6767005040A4 /* searchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD5F210B6767005040A4 /* searchBar+Extension.swift */; };
+		B77CBD6A210B7ADC005040A4 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD69210B7ADC005040A4 /* Popover.swift */; };
+		B7C31550210C26870024AC63 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3154F210C26870024AC63 /* TextField+Extension.swift */; };
 		B7D2C70F2108B42C00D8C2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2C70E2108B42C00D8C2D8 /* AppDelegate.swift */; };
-		B7D2C7112108B42C00D8C2D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2C7102108B42C00D8C2D8 /* ViewController.swift */; };
-		B7D2C7142108B42C00D8C2D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7D2C7122108B42C00D8C2D8 /* Main.storyboard */; };
 		B7D2C7162108B42C00D8C2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D2C7152108B42C00D8C2D8 /* Assets.xcassets */; };
 		B7D2C7192108B42C00D8C2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7D2C7172108B42C00D8C2D8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BCD2AD5805E40F9890E9A01 /* Pods-KhmerDek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhmerDek.release.xcconfig"; path = "Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek.release.xcconfig"; sourceTree = "<group>"; };
+		A72E13281F05ABFC71E5BA34 /* Pods-KhmerDek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhmerDek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek.debug.xcconfig"; sourceTree = "<group>"; };
+		A75EABCCAF912EBF8722F078 /* Pods_KhmerDek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KhmerDek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7158F082108F17600E7CAC2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7158F102108F17700E7CAC2 /* phonenumber.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phonenumber.storyboard; sourceTree = "<group>"; };
+		B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETPhoneNumberRiderViewController.swift; sourceTree = "<group>"; };
+		B7158F172108F17700E7CAC2 /* KETColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETColorUtils.swift; sourceTree = "<group>"; };
+		B7158F192108F17700E7CAC2 /* KETConstantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETConstantViewController.swift; sourceTree = "<group>"; };
+		B7158F1B2108F17700E7CAC2 /* KETNavigationBarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETNavigationBarUtils.swift; sourceTree = "<group>"; };
+		B7158F3B21090BBB00E7CAC2 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		B7158F3C21090BBB00E7CAC2 /* CGPoint+JK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+JK.swift"; sourceTree = "<group>"; };
+		B7158F3D21090BBB00E7CAC2 /* NSAttributedString+JK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+JK.swift"; sourceTree = "<group>"; };
+		B7158F3E21090BBB00E7CAC2 /* SteppedProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteppedProgressBar.swift; sourceTree = "<group>"; };
+		B7158F3F21090BBB00E7CAC2 /* UIImage+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
+		B7158F46210918D800E7CAC2 /* KETRegisterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETRegisterHelper.swift; sourceTree = "<group>"; };
+		B7158F4921094AB500E7CAC2 /* KETSMSCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETSMSCodeViewController.swift; sourceTree = "<group>"; };
+		B7158F4A21094AB500E7CAC2 /* smscode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = smscode.xib; sourceTree = "<group>"; };
+		B7719282210A38090074F8E5 /* phonedriver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phonedriver.storyboard; sourceTree = "<group>"; };
+		B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETPhoneNumberDriverViewController.swift; sourceTree = "<group>"; };
+		B771928A210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETReferencdCodeViewController.swift; sourceTree = "<group>"; };
+		B771928B210A3D5F0074F8E5 /* refcode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refcode.storyboard; sourceTree = "<group>"; };
+		B771928E210A3D6E0074F8E5 /* driver_information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = driver_information.storyboard; sourceTree = "<group>"; };
+		B7719290210A3D8A0074F8E5 /* KETDriverInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETDriverInformationViewController.swift; sourceTree = "<group>"; };
+		B7719293210A44DF0074F8E5 /* vechicle_information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = vechicle_information.storyboard; sourceTree = "<group>"; };
+		B7719295210A451B0074F8E5 /* KETVechicleInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETVechicleInformationViewController.swift; sourceTree = "<group>"; };
+		B77CBD55210AEC93005040A4 /* KETDoumentDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETDoumentDriverViewController.swift; sourceTree = "<group>"; };
+		B77CBD57210AECA9005040A4 /* document.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = document.storyboard; sourceTree = "<group>"; };
+		B77CBD5A210B5676005040A4 /* country_code.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = country_code.storyboard; sourceTree = "<group>"; };
+		B77CBD5C210B569D005040A4 /* KETCountryCodePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETCountryCodePopupViewController.swift; sourceTree = "<group>"; };
+		B77CBD5F210B6767005040A4 /* searchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "searchBar+Extension.swift"; sourceTree = "<group>"; };
+		B77CBD69210B7ADC005040A4 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
+		B7C3154F210C26870024AC63 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		B7D2C70B2108B42C00D8C2D8 /* KhmerDek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KhmerDek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D2C70E2108B42C00D8C2D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B7D2C7102108B42C00D8C2D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B7D2C7132108B42C00D8C2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7D2C7152108B42C00D8C2D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7D2C7182108B42C00D8C2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B7D2C71A2108B42C00D8C2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +86,260 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409D6E2733C392272958A751 /* Pods_KhmerDek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187E0A9C9B982C36CCBEC1C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A72E13281F05ABFC71E5BA34 /* Pods-KhmerDek.debug.xcconfig */,
+				1BCD2AD5805E40F9890E9A01 /* Pods-KhmerDek.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6D4059AFAD40A8B6AC54AF6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A75EABCCAF912EBF8722F078 /* Pods_KhmerDek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7158EFF2108F17600E7CAC2 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD68210B7ADC005040A4 /* popover */,
+				B7158F3A21090BBB00E7CAC2 /* StepProgressbar */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		B7158F062108F17600E7CAC2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B7158F072108F17600E7CAC2 /* supportingfiles */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F082108F17600E7CAC2 /* Info.plist */,
+			);
+			path = supportingfiles;
+			sourceTree = "<group>";
+		};
+		B7158F092108F17600E7CAC2 /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		B7158F0B2108F17700E7CAC2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F0C2108F17700E7CAC2 /* register */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B7158F0C2108F17700E7CAC2 /* register */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F45210918BF00E7CAC2 /* helper */,
+				B7158F0D2108F17700E7CAC2 /* driver */,
+				B7158F0E2108F17700E7CAC2 /* rider */,
+			);
+			path = register;
+			sourceTree = "<group>";
+		};
+		B7158F0D2108F17700E7CAC2 /* driver */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD54210AEC78005040A4 /* document */,
+				B7719292210A44CB0074F8E5 /* vechicle_information */,
+				B7719288210A3D5F0074F8E5 /* driver_information */,
+				B7719281210A38090074F8E5 /* phone */,
+				B7719289210A3D5F0074F8E5 /* reference_code */,
+			);
+			path = driver;
+			sourceTree = "<group>";
+		};
+		B7158F0E2108F17700E7CAC2 /* rider */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD59210B562F005040A4 /* countrycod_popup */,
+				B7158F4821094A8E00E7CAC2 /* smscode */,
+				B7158F0F2108F17700E7CAC2 /* phonenumber */,
+			);
+			path = rider;
+			sourceTree = "<group>";
+		};
+		B7158F0F2108F17700E7CAC2 /* phonenumber */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F102108F17700E7CAC2 /* phonenumber.storyboard */,
+				B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */,
+			);
+			path = phonenumber;
+			sourceTree = "<group>";
+		};
+		B7158F152108F17700E7CAC2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B7C3154E210C26610024AC63 /* textfield */,
+				B77CBD5E210B6745005040A4 /* searchbar */,
+				B7158F162108F17700E7CAC2 /* color */,
+				B7158F182108F17700E7CAC2 /* constant */,
+				B7158F1A2108F17700E7CAC2 /* navigationbar */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B7158F162108F17700E7CAC2 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F172108F17700E7CAC2 /* KETColorUtils.swift */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		B7158F182108F17700E7CAC2 /* constant */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F192108F17700E7CAC2 /* KETConstantViewController.swift */,
+			);
+			path = constant;
+			sourceTree = "<group>";
+		};
+		B7158F1A2108F17700E7CAC2 /* navigationbar */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F1B2108F17700E7CAC2 /* KETNavigationBarUtils.swift */,
+			);
+			path = navigationbar;
+			sourceTree = "<group>";
+		};
+		B7158F3A21090BBB00E7CAC2 /* StepProgressbar */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F3B21090BBB00E7CAC2 /* .gitkeep */,
+				B7158F3C21090BBB00E7CAC2 /* CGPoint+JK.swift */,
+				B7158F3D21090BBB00E7CAC2 /* NSAttributedString+JK.swift */,
+				B7158F3E21090BBB00E7CAC2 /* SteppedProgressBar.swift */,
+				B7158F3F21090BBB00E7CAC2 /* UIImage+UIColor.swift */,
+			);
+			path = StepProgressbar;
+			sourceTree = "<group>";
+		};
+		B7158F45210918BF00E7CAC2 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F46210918D800E7CAC2 /* KETRegisterHelper.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		B7158F4821094A8E00E7CAC2 /* smscode */ = {
+			isa = PBXGroup;
+			children = (
+				B7158F4921094AB500E7CAC2 /* KETSMSCodeViewController.swift */,
+				B7158F4A21094AB500E7CAC2 /* smscode.xib */,
+			);
+			path = smscode;
+			sourceTree = "<group>";
+		};
+		B7719281210A38090074F8E5 /* phone */ = {
+			isa = PBXGroup;
+			children = (
+				B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */,
+				B7719282210A38090074F8E5 /* phonedriver.storyboard */,
+			);
+			path = phone;
+			sourceTree = "<group>";
+		};
+		B7719288210A3D5F0074F8E5 /* driver_information */ = {
+			isa = PBXGroup;
+			children = (
+				B771928E210A3D6E0074F8E5 /* driver_information.storyboard */,
+				B7719290210A3D8A0074F8E5 /* KETDriverInformationViewController.swift */,
+			);
+			path = driver_information;
+			sourceTree = "<group>";
+		};
+		B7719289210A3D5F0074F8E5 /* reference_code */ = {
+			isa = PBXGroup;
+			children = (
+				B771928A210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift */,
+				B771928B210A3D5F0074F8E5 /* refcode.storyboard */,
+			);
+			path = reference_code;
+			sourceTree = "<group>";
+		};
+		B7719292210A44CB0074F8E5 /* vechicle_information */ = {
+			isa = PBXGroup;
+			children = (
+				B7719293210A44DF0074F8E5 /* vechicle_information.storyboard */,
+				B7719295210A451B0074F8E5 /* KETVechicleInformationViewController.swift */,
+			);
+			path = vechicle_information;
+			sourceTree = "<group>";
+		};
+		B77CBD54210AEC78005040A4 /* document */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD55210AEC93005040A4 /* KETDoumentDriverViewController.swift */,
+				B77CBD57210AECA9005040A4 /* document.storyboard */,
+			);
+			path = document;
+			sourceTree = "<group>";
+		};
+		B77CBD59210B562F005040A4 /* countrycod_popup */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD5A210B5676005040A4 /* country_code.storyboard */,
+				B77CBD5C210B569D005040A4 /* KETCountryCodePopupViewController.swift */,
+			);
+			path = countrycod_popup;
+			sourceTree = "<group>";
+		};
+		B77CBD5E210B6745005040A4 /* searchbar */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD5F210B6767005040A4 /* searchBar+Extension.swift */,
+			);
+			path = searchbar;
+			sourceTree = "<group>";
+		};
+		B77CBD68210B7ADC005040A4 /* popover */ = {
+			isa = PBXGroup;
+			children = (
+				B77CBD69210B7ADC005040A4 /* Popover.swift */,
+			);
+			path = popover;
+			sourceTree = "<group>";
+		};
+		B7C3154E210C26610024AC63 /* textfield */ = {
+			isa = PBXGroup;
+			children = (
+				B7C3154F210C26870024AC63 /* TextField+Extension.swift */,
+			);
+			path = textfield;
+			sourceTree = "<group>";
+		};
 		B7D2C7022108B42C00D8C2D8 = {
 			isa = PBXGroup;
 			children = (
 				B7D2C70D2108B42C00D8C2D8 /* KhmerDek */,
 				B7D2C70C2108B42C00D8C2D8 /* Products */,
+				187E0A9C9B982C36CCBEC1C1 /* Pods */,
+				6D4059AFAD40A8B6AC54AF6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +354,15 @@
 		B7D2C70D2108B42C00D8C2D8 /* KhmerDek */ = {
 			isa = PBXGroup;
 			children = (
+				B7158EFF2108F17600E7CAC2 /* ext */,
+				B7158F062108F17600E7CAC2 /* model */,
+				B7158F092108F17600E7CAC2 /* service */,
+				B7158F072108F17600E7CAC2 /* supportingfiles */,
+				B7158F152108F17700E7CAC2 /* utils */,
+				B7158F0B2108F17700E7CAC2 /* view */,
 				B7D2C70E2108B42C00D8C2D8 /* AppDelegate.swift */,
-				B7D2C7102108B42C00D8C2D8 /* ViewController.swift */,
-				B7D2C7122108B42C00D8C2D8 /* Main.storyboard */,
 				B7D2C7152108B42C00D8C2D8 /* Assets.xcassets */,
 				B7D2C7172108B42C00D8C2D8 /* LaunchScreen.storyboard */,
-				B7D2C71A2108B42C00D8C2D8 /* Info.plist */,
 			);
 			path = KhmerDek;
 			sourceTree = "<group>";
@@ -71,9 +374,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7D2C71D2108B42C00D8C2D8 /* Build configuration list for PBXNativeTarget "KhmerDek" */;
 			buildPhases = (
+				311BE019B5E8491F264F9430 /* [CP] Check Pods Manifest.lock */,
 				B7D2C7072108B42C00D8C2D8 /* Sources */,
 				B7D2C7082108B42C00D8C2D8 /* Frameworks */,
 				B7D2C7092108B42C00D8C2D8 /* Resources */,
+				430432F84126634261F152BA /* [CP] Embed Pods Frameworks */,
+				F8E42FD3A8C9EF501FF7F9A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,35 +429,108 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B771928F210A3D6E0074F8E5 /* driver_information.storyboard in Resources */,
 				B7D2C7192108B42C00D8C2D8 /* LaunchScreen.storyboard in Resources */,
+				B771928D210A3D5F0074F8E5 /* refcode.storyboard in Resources */,
+				B77CBD58210AECA9005040A4 /* document.storyboard in Resources */,
 				B7D2C7162108B42C00D8C2D8 /* Assets.xcassets in Resources */,
-				B7D2C7142108B42C00D8C2D8 /* Main.storyboard in Resources */,
+				B7158F212108F17700E7CAC2 /* Info.plist in Resources */,
+				B7719294210A44DF0074F8E5 /* vechicle_information.storyboard in Resources */,
+				B7158F222108F17700E7CAC2 /* phonenumber.storyboard in Resources */,
+				B77CBD5B210B5676005040A4 /* country_code.storyboard in Resources */,
+				B7719284210A38090074F8E5 /* phonedriver.storyboard in Resources */,
+				B7158F4C21094AB500E7CAC2 /* smscode.xib in Resources */,
+				B7158F4021090BBB00E7CAC2 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		311BE019B5E8491F264F9430 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KhmerDek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		430432F84126634261F152BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8E42FD3A8C9EF501FF7F9A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7D2C7072108B42C00D8C2D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7D2C7112108B42C00D8C2D8 /* ViewController.swift in Sources */,
+				B7719287210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift in Sources */,
+				B7158F262108F17700E7CAC2 /* KETColorUtils.swift in Sources */,
+				B7158F4121090BBB00E7CAC2 /* CGPoint+JK.swift in Sources */,
+				B7719296210A451B0074F8E5 /* KETVechicleInformationViewController.swift in Sources */,
+				B771928C210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift in Sources */,
+				B7719291210A3D8A0074F8E5 /* KETDriverInformationViewController.swift in Sources */,
+				B7158F272108F17700E7CAC2 /* KETConstantViewController.swift in Sources */,
+				B77CBD6A210B7ADC005040A4 /* Popover.swift in Sources */,
+				B7158F4421090BBB00E7CAC2 /* UIImage+UIColor.swift in Sources */,
+				B7158F4221090BBB00E7CAC2 /* NSAttributedString+JK.swift in Sources */,
+				B77CBD5D210B569D005040A4 /* KETCountryCodePopupViewController.swift in Sources */,
+				B7158F47210918D800E7CAC2 /* KETRegisterHelper.swift in Sources */,
+				B77CBD56210AEC93005040A4 /* KETDoumentDriverViewController.swift in Sources */,
+				B7158F4321090BBB00E7CAC2 /* SteppedProgressBar.swift in Sources */,
+				B7158F4B21094AB500E7CAC2 /* KETSMSCodeViewController.swift in Sources */,
+				B7158F232108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift in Sources */,
+				B7158F282108F17700E7CAC2 /* KETNavigationBarUtils.swift in Sources */,
+				B7C31550210C26870024AC63 /* TextField+Extension.swift in Sources */,
 				B7D2C70F2108B42C00D8C2D8 /* AppDelegate.swift in Sources */,
+				B77CBD60210B6767005040A4 /* searchBar+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B7D2C7122108B42C00D8C2D8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7D2C7132108B42C00D8C2D8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B7D2C7172108B42C00D8C2D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,31 +651,33 @@
 		};
 		B7D2C71E2108B42C00D8C2D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A72E13281F05ABFC71E5BA34 /* Pods-KhmerDek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RPCX3Q42;
-				INFOPLIST_FILE = KhmerDek/Info.plist;
+				INFOPLIST_FILE = KhmerDek/supportingfiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julie.ma.com.KhmerDek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		B7D2C71F2108B42C00D8C2D8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BCD2AD5805E40F9890E9A01 /* Pods-KhmerDek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RPCX3Q42;
-				INFOPLIST_FILE = KhmerDek/Info.plist;
+				INFOPLIST_FILE = KhmerDek/supportingfiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julie.ma.com.KhmerDek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
