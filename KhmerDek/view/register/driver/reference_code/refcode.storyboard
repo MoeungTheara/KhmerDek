@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sNt-ek-ltc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Referencd Code View Controller-->
+        <scene sceneID="YVF-zn-CTs">
+            <objects>
+                <viewController id="6ky-IA-xKW" customClass="KETReferencdCodeViewController" customModule="KhmerDek" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlb-xb-w8r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0Jg-79-mxG">
+                                <rect key="frame" x="140" y="64" width="94" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Jg-79-mxG" secondAttribute="height" multiplier="1:1" id="yzj-PX-RLv"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxh-DW-PAS" customClass="SteppedProgressBar" customModule="KhmerDek" customModuleProvider="target">
+                                <rect key="frame" x="15.5" y="158" width="345" height="76"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zxh-DW-PAS" secondAttribute="height" multiplier="10:2.2" id="aIE-yq-bTp"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WCN-dl-QXi">
+                                <rect key="frame" x="19" y="245.5" width="337.5" height="76"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o9o-nX-ONJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="47.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="o9o-nX-ONJ" secondAttribute="height" multiplier="10:1.4" id="VUM-Sf-5hQ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU8-9j-5NQ">
+                                        <rect key="frame" x="0.0" y="55.5" width="337.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTb-OW-2NP">
+                                <rect key="frame" x="18.5" y="352.5" width="337.5" height="48"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doClickNext:" destination="6ky-IA-xKW" eventType="touchUpInside" id="7wf-sF-JdF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zxh-DW-PAS" firstAttribute="width" secondItem="zlb-xb-w8r" secondAttribute="width" multiplier="0.92" id="2Ed-t2-8a2"/>
+                            <constraint firstItem="UTb-OW-2NP" firstAttribute="width" secondItem="zlb-xb-w8r" secondAttribute="width" multiplier="0.9" id="5UH-gY-Q3q"/>
+                            <constraint firstItem="WCN-dl-QXi" firstAttribute="width" secondItem="zlb-xb-w8r" secondAttribute="width" multiplier="0.9" id="CPB-XC-DXj"/>
+                            <constraint firstItem="WCN-dl-QXi" firstAttribute="top" secondItem="zxh-DW-PAS" secondAttribute="bottom" multiplier="1.05" id="FYb-5g-ijX"/>
+                            <constraint firstItem="0Jg-79-mxG" firstAttribute="top" secondItem="FdU-Hm-CFk" secondAttribute="top" id="I6b-uT-MUM"/>
+                            <constraint firstItem="UTb-OW-2NP" firstAttribute="centerX" secondItem="FdU-Hm-CFk" secondAttribute="centerX" id="I8P-4B-1Rx"/>
+                            <constraint firstItem="zxh-DW-PAS" firstAttribute="top" secondItem="0Jg-79-mxG" secondAttribute="bottom" id="Jc1-ub-cBP"/>
+                            <constraint firstItem="WCN-dl-QXi" firstAttribute="centerX" secondItem="FdU-Hm-CFk" secondAttribute="centerX" id="ZHk-uH-tbX"/>
+                            <constraint firstItem="0Jg-79-mxG" firstAttribute="centerX" secondItem="FdU-Hm-CFk" secondAttribute="centerX" id="rD5-ae-gF5"/>
+                            <constraint firstItem="0Jg-79-mxG" firstAttribute="width" secondItem="zlb-xb-w8r" secondAttribute="width" multiplier="0.25" id="wS9-nN-rf1"/>
+                            <constraint firstItem="zxh-DW-PAS" firstAttribute="centerX" secondItem="FdU-Hm-CFk" secondAttribute="centerX" id="wrH-3y-3DG"/>
+                            <constraint firstItem="UTb-OW-2NP" firstAttribute="top" secondItem="WCN-dl-QXi" secondAttribute="bottom" multiplier="1.1" id="yhz-5o-bIS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FdU-Hm-CFk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DDj-BT-xE9"/>
+                    <connections>
+                        <outlet property="codeTextFeild" destination="o9o-nX-ONJ" id="M0m-qY-6fI"/>
+                        <outlet property="logoImageView" destination="0Jg-79-mxG" id="F8v-MO-lEF"/>
+                        <outlet property="nextButton" destination="UTb-OW-2NP" id="cdm-Gp-1h1"/>
+                        <outlet property="stepProgressBar" destination="zxh-DW-PAS" id="nYm-cv-175"/>
+                        <outlet property="validateMessageLabel" destination="BU8-9j-5NQ" id="dPw-PW-31h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Owl-wO-8Rw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528.79999999999995" y="158.77061469265368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WES-sX-vYb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sNt-ek-ltc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xx6-Tq-exl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6ky-IA-xKW" kind="relationship" relationship="rootViewController" id="0UM-gK-2Fd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hDi-Pe-7nx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95" y="159"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="1773" height="1773"/>
+    </resources>
+</document>
