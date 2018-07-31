@@ -28,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sMf-rH-vhe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sMf-rH-vhe">
                     <rect key="frame" x="140.5" y="20" width="94" height="94"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="sMf-rH-vhe" secondAttribute="height" multiplier="1:1" id="9yR-MS-m4B"/>
@@ -47,10 +47,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cDW-ZT-8Tl">
-                    <rect key="frame" x="90.5" y="209" width="195" height="45"/>
+                    <rect key="frame" x="96" y="199.5" width="183" height="41.5"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OF2-ra-6po">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="41" height="41.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="OF2-ra-6po" secondAttribute="height" id="Bgt-o3-MtJ"/>
                             </constraints>
@@ -59,13 +59,13 @@
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7Y-Bf-rlw">
-                            <rect key="frame" x="75" y="0.0" width="45" height="45"/>
+                            <rect key="frame" x="71" y="0.0" width="41" height="41.5"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vwb-mj-O7W">
-                            <rect key="frame" x="150" y="0.0" width="45" height="45"/>
+                            <rect key="frame" x="142" y="0.0" width="41" height="41.5"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -75,11 +75,10 @@
                         <constraint firstItem="A7Y-Bf-rlw" firstAttribute="width" secondItem="OF2-ra-6po" secondAttribute="width" id="QTr-Be-2q4"/>
                         <constraint firstItem="vwb-mj-O7W" firstAttribute="height" secondItem="A7Y-Bf-rlw" secondAttribute="height" id="Tyj-RB-shM"/>
                         <constraint firstItem="A7Y-Bf-rlw" firstAttribute="height" secondItem="OF2-ra-6po" secondAttribute="height" id="r1C-fi-eM5"/>
-                        <constraint firstItem="vwb-mj-O7W" firstAttribute="width" secondItem="A7Y-Bf-rlw" secondAttribute="width" id="zkf-eO-3RF"/>
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g7-QK-oYR">
-                    <rect key="frame" x="19" y="279.5" width="337.5" height="48"/>
+                    <rect key="frame" x="19" y="265" width="337.5" height="48"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                     <state key="normal" title="Button"/>
                     <connections>
@@ -98,9 +97,9 @@
                 <constraint firstItem="sMf-rH-vhe" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="VvU-hU-eeK"/>
                 <constraint firstItem="cDW-ZT-8Tl" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="XpG-HM-wnT"/>
                 <constraint firstItem="3g7-QK-oYR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="YUQ-t7-MGT"/>
-                <constraint firstItem="cDW-ZT-8Tl" firstAttribute="top" secondItem="FLL-gd-s8C" secondAttribute="bottom" multiplier="1.1" id="rBY-6O-Gr7"/>
+                <constraint firstItem="cDW-ZT-8Tl" firstAttribute="top" secondItem="FLL-gd-s8C" secondAttribute="bottom" multiplier="1.05" id="rBY-6O-Gr7"/>
                 <constraint firstItem="3g7-QK-oYR" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="sUQ-Zw-JB9"/>
-                <constraint firstItem="OF2-ra-6po" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.12" id="xeN-nl-ICT"/>
+                <constraint firstItem="OF2-ra-6po" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.11" id="xeN-nl-ICT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="-278" y="44"/>

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol KETCountryCodeDelegete {
+    func didSelectedCountryCode(country:Country)
+}
+
 class KETCountryCodePopupViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -15,6 +19,12 @@ class KETCountryCodePopupViewController: UIViewController {
     @IBOutlet weak var searchbar: UISearchBar!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var containerView: UIView!
+    var delegate:KETCountryCodeDelegete?
+    private var countryList: [Country] {
+        let countries = Countries()
+        let countryList = countries.countries
+        return countryList
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initElement()
@@ -62,24 +72,39 @@ extension KETCountryCodePopupViewController:UITableViewDataSource{
     
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return self.countryList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "countrycodecell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "countrycodecell", for: indexPath) as! KETCountryCodeTableViewCell
+        cell.customCell(country: self.countryList[indexPath.row])
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
     }
 }
 
 extension KETCountryCodePopupViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("did select")
+        self.delegate?.didSelectedCountryCode(country: self.countryList[indexPath.row])
     }
 }
 
 
 class KETCountryCodeTableViewCell:UITableViewCell{
-    @IBOutlet weak var countryImageView: UIImageView!
+ 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var flagLabel: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.flagLabel.font = UIFont.systemFont(ofSize: 30)
+    }
+    func customCell(country:Country){
+        self.nameLabel.text = "\(country.name ?? "")(\(country.countryCode))"
+        self.codeLabel.text = "+\(country.phoneExtension)"
+        self.flagLabel.text = country.flag ?? ""
+    }
     
 }

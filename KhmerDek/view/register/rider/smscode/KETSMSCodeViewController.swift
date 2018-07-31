@@ -32,7 +32,10 @@ class KETSMSCodeViewController: UIViewController {
     
     func initElement(){
         self.nextButton.backgroundColor = UIColor.init(hexString: appColor)
-        self.nextButton.setTitle("Next", for: .normal)
+        self.nextButton.setTitle("Register", for: .normal)
+        if isDriver == true{
+            self.nextButton.setTitle("Next", for: .normal)
+        }
         self.nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         self.nextButton.layer.cornerRadius = 10
         self.nextButton.clipsToBounds = true
@@ -51,7 +54,7 @@ class KETSMSCodeViewController: UIViewController {
             self.nextButton.alpha = 1
         }else{
             self.nextButton.isEnabled = false
-            self.nextButton.alpha = 0.9
+            self.nextButton.alpha = 0.8
         }
     }
     

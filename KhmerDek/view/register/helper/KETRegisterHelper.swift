@@ -67,7 +67,7 @@ class KETRegisterHelper: NSObject {
             }
             actionSheetController.addAction(langaugeAction)
         }
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style:.destructive ) { action -> Void in }
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style:.cancel ) { action -> Void in }
     
         actionSheetController.addAction(cancelAction)
         

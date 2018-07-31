@@ -59,14 +59,14 @@ class KETReferencdCodeViewController: UIViewController {
     }
     
     func initnavigationBar(){
-    
+        
         KETNavigationBarUtils.setUpResisterNavigationBar(navigationItem:self.navigationItem, rightSelector1: #selector(doChangelangauge), rightSelector2:  #selector(doShowCallAgency),vc: self)
       
         if let navigationBar = self.navigationController?.navigationBar {
             
             KETNavigationBarUtils.setNavigationBarToTransparent(navigationBar: navigationBar)
         }
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     func addDidChangeTextTo(textFiled:UITextField){
@@ -74,8 +74,9 @@ class KETReferencdCodeViewController: UIViewController {
     }
     
     func showRegisterPhoneScreen(){
-        let ui = UIStoryboard.init(name: "phonedriver", bundle: nil)
+        let ui = UIStoryboard.init(name: "phone", bundle: nil)
         let phoneVc = ui.instantiateInitialViewController() as! KETPhoneNumberDriverViewController
+        phoneVc.isDriver = true
         self.navigationController?.pushViewController(phoneVc, animated: true)
     }
     
@@ -98,11 +99,29 @@ class KETReferencdCodeViewController: UIViewController {
         }
         
     }
+    func showError(textFiled:UITextField){
+        textFiled.layer.borderWidth = 2
+        textFiled.layer.borderColor = UIColor.red.cgColor
+        textFiled.shakeAnimation()
+    }
+    
+    func hideError(textField:UITextField){
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.init(hexString: appColor).cgColor
+    }
     
     func isCanGoToNext()->Bool{
         var isCan = false
         if codeTextFeild.text?.isEmpty == false{
-          isCan = true
+            let count = self.codeTextFeild.text?.count ?? 0
+            if count < 8{
+                KETRegisterHelper.showError(label: self.validateMessageLabel, message: "minimun 8 digits", TotextField: self.codeTextFeild)
+            }else{
+                isCan = true
+            }
+        
+        }else{
+            self.showError(textFiled: codeTextFeild)
         }
         return isCan
     }
@@ -111,10 +130,7 @@ class KETReferencdCodeViewController: UIViewController {
     @IBAction func doClickNext(_ sender: Any) {
         if self.isCanGoToNext(){
             self.showRegisterPhoneScreen()
-        }else{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!", TotextField: self.codeTextFeild)
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -131,17 +147,25 @@ extension KETReferencdCodeViewController:UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == true{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!",TotextField: textField)
+           self.showError(textFiled: textField)
+            let count = self.codeTextFeild.text?.count ?? 0
+            if count < 8{
+                KETRegisterHelper.showError(label: self.validateMessageLabel, message: "minimun 8 digits", TotextField: self.codeTextFeild)
+            }else{
+                KETRegisterHelper.hideError(label: self.validateMessageLabel)
+            }
         }else{
-            KETRegisterHelper.hideError(label: self.validateMessageLabel)
+            self.hideError(textField: textField)
         }
     }
     
     @objc func textFieldDidChange(textField: UITextField){
         if textField.text?.isEmpty == false{
-            KETRegisterHelper.hideError(label: self.validateMessageLabel)
-        }else{
-            
+            self.hideError(textField: textField)
+            let count = self.codeTextFeild.text?.count ?? 0
+            if count >= 8{
+                KETRegisterHelper.hideError(label: self.validateMessageLabel)
+            }
         }
         print("Text changed")
         

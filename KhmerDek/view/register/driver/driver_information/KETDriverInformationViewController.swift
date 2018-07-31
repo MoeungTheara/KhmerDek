@@ -11,6 +11,7 @@ import UIKit
 class KETDriverInformationViewController: UIViewController {
     @IBOutlet weak var stepProgressBar: SteppedProgressBar!
     @IBOutlet weak var validateMessageLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var nextButron: UIButton!
     @IBOutlet weak var nameTextfiled: UITextField!
@@ -18,16 +19,22 @@ class KETDriverInformationViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     var picker:UIImagePickerController?
     var driverImage:UIImage?
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initnavigationBar()
         self.initStepProgressBar()
         self.initElement()
+        self.addNotificationKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.initData()
     }
     
@@ -35,12 +42,45 @@ class KETDriverInformationViewController: UIViewController {
         super.viewDidLayoutSubviews()
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height*0.5
         self.profileImageView.clipsToBounds = true
+        self.scrollView.contentSize = CGSize.init(width: screenWidth, height: screenheight*1.1)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     
     }
+    
+    
+    func addNotificationKeyboard(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardDidShow(_ notification: NSNotification){
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            if let y = self.nameTextfiled?.frame.origin.y {
+                    if y > keyboardHeight{
+                        self.scrollView.setContentOffset( CGPoint.init(x: 0, y:y - keyboardHeight*0.8), animated: true)
+                    }
+                
+                
+            }
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification){
+        self.scrollView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+    }
+    
+    
     
     func initnavigationBar(){
         self.navigationItem.backBarButtonItem?.title = ""
@@ -83,6 +123,7 @@ class KETDriverInformationViewController: UIViewController {
         self.profileImageView.backgroundColor = UIColor.init(hexString: redColor)
         self.nameTextfiled.placeholder = "username"
         self.nameTextfiled.delegate = self
+        self.nameTextfiled.returnKeyType = .done
         KETRegisterHelper.hideError(label: self.validateMessageLabel)
         self.addDidChangeTextTo(textFiled: self.nameTextfiled)
     }
@@ -107,6 +148,7 @@ class KETDriverInformationViewController: UIViewController {
     }
     
     func showUploadPhotoRequire(){
+        self.nameTextfiled.resignFirstResponder()
         let alert = UIAlertController(title: "Photo required", message: "Please choose a photo to continue", preferredStyle: UIAlertControllerStyle.alert)
     
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -176,10 +218,21 @@ class KETDriverInformationViewController: UIViewController {
         
     }
     
+    func showError(textFiled:UITextField){
+        textFiled.layer.borderWidth = 2
+        textFiled.layer.borderColor = UIColor.red.cgColor
+        textFiled.shakeAnimation()
+    }
+    
+    func hideError(textField:UITextField){
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.init(hexString: appColor).cgColor
+    }
+    
     func isCanGoToNext()->Bool{
         var isCan = false
         if nameTextfiled.text?.isEmpty == true{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!",TotextField: nameTextfiled)
+            self.showError(textFiled: nameTextfiled)
         }
         if self.driverImage == nil {
             self.showUploadPhotoRequire()
@@ -204,9 +257,7 @@ class KETDriverInformationViewController: UIViewController {
         self.showChoosingPhotoAlert()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+    
 }
 
 extension KETDriverInformationViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
@@ -219,6 +270,7 @@ extension KETDriverInformationViewController:UIImagePickerControllerDelegate,UIN
         self.driverImage = chosenImage
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.image = chosenImage
+        self.initData()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -236,15 +288,16 @@ extension KETDriverInformationViewController:UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == true{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!",TotextField: textField)
+            self.showError(textFiled: textField)
         }else{
-            KETRegisterHelper.hideError(label: self.validateMessageLabel)
+            self.hideError(textField: textField)
+          
         }
     }
     
     @objc func textFieldDidChange(textField: UITextField){
         if textField.text?.isEmpty == false{
-            KETRegisterHelper.hideError(label: self.validateMessageLabel)
+            self.hideError(textField: textField)
         }else{
             
         }

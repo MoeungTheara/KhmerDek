@@ -7,35 +7,33 @@
 //
 
 import UIKit
+enum RowType:Int{
+    case logo
+    case stepProgressBar
+    case textField
+    case button
+}
 
-enum ButtonDoumentType:Int{
-    case VechicleID
-    case NationalID
-    case DrivingLicense
+class RowDocument:NSObject{
+    var type:Int?
+    var objectValue:KETDocument?
+    var isError:Bool = false
 }
 
 class KETDoumentDriverViewController: UIViewController {
-
-    @IBOutlet weak var nationalIdView: UIView!
-    @IBOutlet weak var drivingLienseView: UIView!
-    @IBOutlet weak var vechicleNoView: UIView!
-    @IBOutlet weak var uploadDrivingbutton: UIButton!
-    @IBOutlet weak var uploadnationalIdButton: UIButton!
-    @IBOutlet weak var uploadVechicleIdButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var drivingLicenseTextFiled: UITextField!
-    @IBOutlet weak var nationalIdTextfield: UITextField!
-    @IBOutlet weak var vechicleIdTextFiled: UITextField!
-    @IBOutlet weak var stepProgressBar: SteppedProgressBar!
-    @IBOutlet weak var logoImagaeView: UIImageView!
-    var uploadType:Int?
-    var picker:UIImagePickerController?
+    @IBOutlet weak var tableView: UITableView!
     
+    var uploadIndex:Int?
+    var picker:UIImagePickerController?
+    var selectedTextField:UITextField?
+    var dataSource = [RowDocument]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initStepProgressBar()
         self.initnavigationBar()
+        self.initDataSource()
         self.initElement()
+        self.addNotificationKeyboard()
+        self.initTableView()
  
     }
 
@@ -44,17 +42,93 @@ class KETDoumentDriverViewController: UIViewController {
     
     }
     
+   
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
     
-    func initStepProgressBar(){
-        let title = KETRegisterHelper.getDriverTitleProgressbar()
-        KETRegisterHelper.initStepProgressBar(stepProgressBar: self.stepProgressBar,width:screenWidth*0.92, numberOfItem: 6, indexSelected: 5, titles: title)
-        let width = (screenWidth*0.92) / CGFloat(title.count)
-        self.stepProgressBar.widthTitle = width
-        self.stepProgressBar.titleFont = UIFont.boldSystemFont(ofSize: 8.5)
+    func initTableView(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200
+        self.registerCell()
+    }
+    
+    func initDataSource(){
+        let logoImageRow = RowDocument()
+        logoImageRow.type = RowType.logo.hashValue
+        self.dataSource.append(logoImageRow)
+        let stepProgressBarRow = RowDocument()
+        stepProgressBarRow.type = RowType.stepProgressBar.hashValue
+        self.dataSource.append(stepProgressBarRow)
         
+        let textFieldList = self.initDefaultDocumentTextField()
+        for field in textFieldList{
+            let row = RowDocument()
+            row.type = RowType.textField.hashValue
+            row.objectValue = field
+            self.dataSource.append(row)
+        }
+        
+        let buttonRow = RowDocument()
+        buttonRow.type = RowType.button.hashValue
+        self.dataSource.append(buttonRow)
         
     }
     
+    func initDefaultDocumentTextField() -> [KETDocument]{
+        var documentList = [KETDocument]()
+        let vechicleId = KETDocument()
+        vechicleId.id = "1"
+        vechicleId.title = "Vechicle ID"
+        documentList.append(vechicleId)
+        
+        let nationalId = KETDocument()
+        nationalId.id = "2"
+        nationalId.title = "National ID"
+        documentList.append(nationalId)
+        
+        let drivingId = KETDocument()
+        drivingId.id = "3"
+        drivingId.title = "Driving License"
+        documentList.append(drivingId)
+        
+        return documentList
+    }
+    
+    func registerCell(){
+        let nib = UINib.init(nibName: "textfieldcell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "textfieldcell")
+    }
+    
+    func addNotificationKeyboard(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardDidShow(_ notification: NSNotification){
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            if let y = self.selectedTextField?.frame.origin {
+                if let point = self.selectedTextField?.convert(y, to:self.view) {
+                    if point.y > keyboardHeight{
+                        self.tableView.setContentOffset( CGPoint.init(x: 0, y:point.y - keyboardHeight), animated: true)
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification){
+        self.tableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+    }
+    
+
     func initnavigationBar(){
         self.navigationItem.backBarButtonItem?.title = ""
         self.navigationItem.title = nil
@@ -69,37 +143,12 @@ class KETDoumentDriverViewController: UIViewController {
     func initElement(){
         self.picker = UIImagePickerController()
         picker?.delegate = self
-        self.registerButton.backgroundColor = UIColor.init(hexString: appColor)
-        self.registerButton.setTitle("Register", for: .normal)
-        self.registerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        self.registerButton.layer.cornerRadius = 10
-        self.registerButton.clipsToBounds = true
-        self.registerButton.setTitleColor(.white, for: .normal)
-        KETRegisterHelper.SetRoundView(view: self.vechicleNoView, raduis: self.vechicleIdTextFiled.frame.height*0.2)
-         KETRegisterHelper.SetRoundView(view: self.nationalIdView, raduis: self.nationalIdTextfield.frame.height*0.2)
-         KETRegisterHelper.SetRoundView(view: self.drivingLienseView, raduis: self.drivingLicenseTextFiled.frame.height*0.2)
-        self.addImageTouploadButton(button: self.uploadDrivingbutton)
-        self.addImageTouploadButton(button: self.uploadnationalIdButton)
-        self.addImageTouploadButton(button: self.uploadVechicleIdButton)
-        self.setPlaceHolderTextField(textField: self.vechicleIdTextFiled, text: "Vechicle ID")
-        self.setPlaceHolderTextField(textField: self.nationalIdTextfield , text: "National ID")
-        self.setPlaceHolderTextField(textField: self.drivingLicenseTextFiled, text: "Driving License (Optional)")
-        self.uploadVechicleIdButton.tag = ButtonDoumentType.VechicleID.hashValue
-        self.uploadnationalIdButton.tag = ButtonDoumentType.NationalID.hashValue
-        self.uploadDrivingbutton.tag = ButtonDoumentType.DrivingLicense.hashValue
+        
     }
-    
-    func addImageTouploadButton(button:UIButton){
-        let image = #imageLiteral(resourceName: "upload").withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.tintColor = UIColor.init(hexString: appColor)
-    }
-    
-    func setPlaceHolderTextField(textField:UITextField,text:String){
-        textField.attributedPlaceholder = NSAttributedString(string:text, attributes: [NSAttributedStringKey.foregroundColor: UIColor.init(hexString: appColor).withAlphaComponent(0.6)])
-    }
-    func showChoosingPhotoAlert(){
-        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+    func showChoosingPhotoAlert(index:Int){
+        let title = self.dataSource[index].objectValue?.title ?? ""
+        let actionSheetController: UIAlertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
         let cameraAction: UIAlertAction = UIAlertAction(title: "Camera", style: .default) { action -> Void in
             self.openCamera()
@@ -138,6 +187,8 @@ class KETDoumentDriverViewController: UIViewController {
         }
     }
     
+
+    
     
     @objc func doChangelangauge() {
         let lanagaugeTitle = KETRegisterHelper.getTitlelangauge()
@@ -157,16 +208,46 @@ class KETDoumentDriverViewController: UIViewController {
             print("phone number:\(phoneNumber)")
         }
     }
+  
     
-    @IBAction func doClickRegister(_ sender: Any) {
+    
+    func showErrorIfNeeded()->Bool{
+        var isCan = false
+        for data in self.dataSource {
+            if data.type == RowType.textField.hashValue{
+                if data.objectValue?.value == nil{
+                    data.isError = true
+                }else{
+                    data.isError = false
+                }
+            }
+        }
+        
+        for data in self.dataSource{
+            if data.type == RowType.textField.hashValue{
+                if data.isError == true{
+                    isCan = false
+                }else{
+                    if isCan == true{
+                         isCan = true
+                    }
+                }
+            }
+        }
+        return isCan
+        
+    }
+    
+    func isCanRegister() -> Bool{
+        
+        return self.showErrorIfNeeded()
     }
     
     
-    @IBAction func doClickUpload(_ sender: Any) {
-        let button = sender as! UIButton
-        self.uploadType = button.tag
-        self.showChoosingPhotoAlert()
-        
+    @IBAction func doClickRegister(_ sender: Any) {
+        if isCanRegister(){
+            
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -177,6 +258,67 @@ class KETDoumentDriverViewController: UIViewController {
 }
 
 
+extension KETDoumentDriverViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data =  self.dataSource[indexPath.row]
+        if data.type == RowType.logo.hashValue {
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "logocell", for: indexPath)
+            
+            return logoCell
+        }else if data.type == RowType.stepProgressBar.hashValue{
+            let progressCell = tableView.dequeueReusableCell(withIdentifier: "stepprogressbarcell", for: indexPath)
+            return progressCell
+        }else if data.type == RowType.textField.hashValue{
+            let textfieldCell = tableView.dequeueReusableCell(withIdentifier:"textfieldcell", for: indexPath) as! KETTextFieldTableViewCell
+            textfieldCell.delegate = self
+            textfieldCell.customCell(data: data,row: indexPath.row)
+            
+            return textfieldCell
+        }else if data.type == RowType.button.hashValue{
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "buttoncell", for: indexPath) as! KETButtonTableViewCell
+            buttonCell.delegate = self
+            return buttonCell
+        }
+        return UITableViewCell()
+    }
+}
+
+extension KETDoumentDriverViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == RowType.logo.hashValue{
+            return (screenWidth*0.9)*0.25
+        }else if indexPath.row == RowType.stepProgressBar.hashValue{
+            return (screenWidth*0.9)*0.22
+        }else{
+            return UITableViewAutomaticDimension
+        }
+    }
+}
+
+extension KETDoumentDriverViewController:KETextFieldDelegate,KETButtonDelegate{
+    func doClickUpload(index: Int) {
+        print("indexx===\(index)")
+        self.uploadIndex = index
+        self.showChoosingPhotoAlert(index:index)
+    }
+    
+    func doClickRegister() {
+        if isCanRegister(){
+            
+        }else{
+            self.tableView.reloadData()
+        }
+    }
+}
+
 
 extension KETDoumentDriverViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -186,17 +328,19 @@ extension KETDoumentDriverViewController:UIImagePickerControllerDelegate,UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         print(chosenImage)
-        if let type = self.uploadType {
-            
-            if type == ButtonDoumentType.VechicleID.hashValue{
-                
-            }else if type == ButtonDoumentType.NationalID.hashValue{
-                
-            }else if type == ButtonDoumentType.DrivingLicense.hashValue{
-                
-            }
+        if let index = self.uploadIndex{
+            self.dataSource[index].objectValue?.value = "678887"
+            self.dataSource[index].isError = false
+            self.tableView.reloadRows(at: [IndexPath.init(row: index, section: 0)], with: .none)
         }
+        
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
+
+
 

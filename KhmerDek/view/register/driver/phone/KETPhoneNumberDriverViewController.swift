@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class KETPhoneNumberDriverViewController: UIViewController {
 
    
@@ -15,19 +16,21 @@ class KETPhoneNumberDriverViewController: UIViewController {
     @IBOutlet weak var stepProgressBar: SteppedProgressBar!
     @IBOutlet weak var countryCodeButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var flagImageView: UIImageView!
+    @IBOutlet weak var flagLabel: UILabel!
     @IBOutlet weak var phoneTextFeild: UITextField!
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
     fileprivate var popover: Popover!
+    var isDriver:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initElement()
         self.initnavigationBar()
         self.initStepProgressBar()
-        self.initStaticData()
+        self.initData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,17 +38,35 @@ class KETPhoneNumberDriverViewController: UIViewController {
         
     }
     
-    func initStaticData(){
-        self.countryNameLabel.text = "Cambodia"
-        self.countryCodeLabel.text = "+855"
+    func initData(){
+        var code = ""
+        if let countryCode:String = (Locale.current as NSLocale).object(forKey: .countryCode) as? String{
+            code = countryCode
+        }else{
+            code = "KH"
+        }
+        let currentCountry =  Countries().countries.filter({$0.countryCode == code})
+        if let country = currentCountry.first{
+            self.countryNameLabel.text = country.name ?? ""
+            self.countryCodeLabel.text = "+\(country.phoneExtension)"
+            self.flagLabel.text = country.flag ?? ""
+        }else{
+            
+        }
     }
     
     func initStepProgressBar(){
-        let title = KETRegisterHelper.getDriverTitleProgressbar()
-        KETRegisterHelper.initStepProgressBar(stepProgressBar: self.stepProgressBar,width:screenWidth*0.92, numberOfItem: 6, indexSelected: 1, titles: title)
-        let width = (screenWidth*0.92) / CGFloat(title.count)
-        self.stepProgressBar.widthTitle = width
-        self.stepProgressBar.titleFont = UIFont.boldSystemFont(ofSize: 8.5)
+        if isDriver == true {
+            let title = KETRegisterHelper.getDriverTitleProgressbar()
+            KETRegisterHelper.initStepProgressBar(stepProgressBar: self.stepProgressBar,width:screenWidth*0.92, numberOfItem: 6, indexSelected: 1, titles: title)
+            let width = (screenWidth*0.92) / CGFloat(title.count)
+            self.stepProgressBar.widthTitle = width
+            self.stepProgressBar.titleFont = UIFont.boldSystemFont(ofSize: 8.5)
+        }else{
+            let title = ["Phone","SMM Code"]
+            KETRegisterHelper.initStepProgressBar(stepProgressBar: self.stepProgressBar,width:screenWidth*0.4, numberOfItem: 2, indexSelected: 0, titles: title)
+        }
+       
       
         
     }
@@ -71,14 +92,18 @@ class KETPhoneNumberDriverViewController: UIViewController {
         self.phoneTextFeild.delegate = self
         self.addDidChangeTextTo(textFiled: self.phoneTextFeild)
         KETRegisterHelper.hideError(label: self.validateMessageLabel)
-        
+        self.flagLabel.font = UIFont.systemFont(ofSize: 35)
     }
         
     func initnavigationBar(){
-       KETNavigationBarUtils.setUpResisterNavigationBar(navigationItem:self.navigationItem, rightSelector1: #selector(doChangelangauge), rightSelector2:  #selector(doShowCallAgency),vc: self)
-        if let navigationBar = self.navigationController?.navigationBar {
-            navigationBar.tintColor = UIColor.init(hexString: appColor)
-            KETNavigationBarUtils.setNavigationBarToTransparent(navigationBar: navigationBar)
+        if self.isDriver == true {
+          KETNavigationBarUtils.setUpResisterNavigationBar(navigationItem:self.navigationItem, rightSelector1: #selector(doChangelangauge), rightSelector2:  #selector(doShowCallAgency),vc: self)
+            if let navigationBar = self.navigationController?.navigationBar {
+                navigationBar.tintColor = UIColor.init(hexString: appColor)
+                KETNavigationBarUtils.setNavigationBarToTransparent(navigationBar: navigationBar)
+            }
+        }else{
+            self.navigationItem.setHidesBackButton(true, animated: false)
         }
         
     }
@@ -89,17 +114,21 @@ class KETPhoneNumberDriverViewController: UIViewController {
     
     func showSMSCodeScreen(){
         let smsCodeVC = KETSMSCodeViewController.init(nibName: "smscode", bundle: nil)
-        smsCodeVC.isDriver = true
+        smsCodeVC.isDriver = self.isDriver
         self.navigationController?.pushViewController(smsCodeVC, animated: true)
+        
+       
     }
     
     func showCountryCodePopup(){
+        self.view.endEditing(true)
         let ui = UIStoryboard.init(name: "country_code", bundle: nil)
-        let vc = ui.instantiateInitialViewController()
-        vc?.view.frame = CGRect.init(x: 0, y: 0, width: screenWidth*0.8, height: screenheight*0.7)
+        let vc = ui.instantiateInitialViewController() as! KETCountryCodePopupViewController
+        vc.delegate = self
+        vc.view.frame = CGRect.init(x: 0, y: 0, width: screenWidth*0.85, height: screenheight*0.85)
         let popoverOptions: [PopoverOption] = [
             .type(.down),
-            .cornerRadius(5),
+            .cornerRadius(2),
             .blackOverlayColor(UIColor(white: 0.0, alpha: 0.6))
         ]
         self.popover = Popover(options: popoverOptions)
@@ -108,8 +137,8 @@ class KETPhoneNumberDriverViewController: UIViewController {
         }
         self.popover.didShowHandler = {
             print("didShowHandler")
-            vc?.view.layer.cornerRadius = 5
-            vc?.view.clipsToBounds = true
+            vc.view.layer.cornerRadius = 2
+            vc.view.clipsToBounds = true
         }
         self.popover.willDismissHandler = {
             print("willDismissHandler")
@@ -117,22 +146,30 @@ class KETPhoneNumberDriverViewController: UIViewController {
         self.popover.didDismissHandler = {
             print("didDismissHandler")
         }
-        if let view = vc?.view{
-             self.popover.showAsDialog(view)
-        }
+        self.popover.showAsDialog(vc.view)
        
+    }
+    func showError(textFiled:UITextField){
+        textFiled.layer.borderWidth = 2
+        textFiled.layer.borderColor = UIColor.red.cgColor
+        textFiled.shakeAnimation()
+    }
+    
+    func hideError(textField:UITextField){
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.init(hexString: appColor).cgColor
     }
     
     func isCanGoToNext()->Bool{
         var isCan = false
         if phoneTextFeild.text?.isEmpty == false{
             isCan = true
-            if (phoneTextFeild.text?.count ?? 0) < 6 {
+            if (phoneTextFeild.text?.count ?? 0) < 9 ||  (phoneTextFeild.text?.count ?? 0) > 10{
                 isCan = false
                 KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Invalid Phone Number ",TotextField: phoneTextFeild)
             }
         }else{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!",TotextField: self.phoneTextFeild)
+            self.showError(textFiled: phoneTextFeild)
         }
         return isCan
     }
@@ -172,6 +209,14 @@ class KETPhoneNumberDriverViewController: UIViewController {
     }
 
 }
+extension KETPhoneNumberDriverViewController:KETCountryCodeDelegete{
+    func didSelectedCountryCode(country: Country) {
+        self.popover.dismiss()
+        self.countryCodeLabel.text = "+\(country.phoneExtension)"
+        self.countryNameLabel.text = country.name
+        self.flagLabel.text = country.flag ?? ""
+    }
+}
 
 extension KETPhoneNumberDriverViewController:UITextFieldDelegate{
     
@@ -181,9 +226,9 @@ extension KETPhoneNumberDriverViewController:UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.isEmpty == true{
-            KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Feild Require!",TotextField: textField)
+            self.showError(textFiled: textField)
         }else{
-            if (textField.text?.count ?? 0) < 6{
+            if (textField.text?.count ?? 0) < 9 ||  (textField.text?.count ?? 0) > 10{
                 KETRegisterHelper.showError(label: self.validateMessageLabel, message: "Invalid Phone Number ",TotextField: textField)
             }else{
                 KETRegisterHelper.hideError(label: self.validateMessageLabel)
@@ -194,6 +239,7 @@ extension KETPhoneNumberDriverViewController:UITextFieldDelegate{
     
     @objc func textFieldDidChange(textField: UITextField){
         if textField.text?.isEmpty == false{
+            self.hideError(textField: textField)
             KETRegisterHelper.hideError(label: self.validateMessageLabel)
         }else{
             

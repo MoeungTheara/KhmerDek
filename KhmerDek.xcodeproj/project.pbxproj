@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		409D6E2733C392272958A751 /* Pods_KhmerDek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A75EABCCAF912EBF8722F078 /* Pods_KhmerDek.framework */; };
 		B7158F212108F17700E7CAC2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7158F082108F17600E7CAC2 /* Info.plist */; };
-		B7158F222108F17700E7CAC2 /* phonenumber.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7158F102108F17700E7CAC2 /* phonenumber.storyboard */; };
-		B7158F232108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */; };
 		B7158F262108F17700E7CAC2 /* KETColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F172108F17700E7CAC2 /* KETColorUtils.swift */; };
 		B7158F272108F17700E7CAC2 /* KETConstantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F192108F17700E7CAC2 /* KETConstantViewController.swift */; };
 		B7158F282108F17700E7CAC2 /* KETNavigationBarUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F1B2108F17700E7CAC2 /* KETNavigationBarUtils.swift */; };
@@ -22,7 +20,9 @@
 		B7158F47210918D800E7CAC2 /* KETRegisterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F46210918D800E7CAC2 /* KETRegisterHelper.swift */; };
 		B7158F4B21094AB500E7CAC2 /* KETSMSCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7158F4921094AB500E7CAC2 /* KETSMSCodeViewController.swift */; };
 		B7158F4C21094AB500E7CAC2 /* smscode.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7158F4A21094AB500E7CAC2 /* smscode.xib */; };
-		B7719284210A38090074F8E5 /* phonedriver.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7719282210A38090074F8E5 /* phonedriver.storyboard */; };
+		B71ED5BF210E0D6F00646692 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71ED5BD210E0D6F00646692 /* Countries.swift */; };
+		B71ED5C0210E0D6F00646692 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71ED5BE210E0D6F00646692 /* Country.swift */; };
+		B7719284210A38090074F8E5 /* phone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7719282210A38090074F8E5 /* phone.storyboard */; };
 		B7719287210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */; };
 		B771928C210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B771928A210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift */; };
 		B771928D210A3D5F0074F8E5 /* refcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B771928B210A3D5F0074F8E5 /* refcode.storyboard */; };
@@ -36,7 +36,16 @@
 		B77CBD5D210B569D005040A4 /* KETCountryCodePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD5C210B569D005040A4 /* KETCountryCodePopupViewController.swift */; };
 		B77CBD60210B6767005040A4 /* searchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD5F210B6767005040A4 /* searchBar+Extension.swift */; };
 		B77CBD6A210B7ADC005040A4 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CBD69210B7ADC005040A4 /* Popover.swift */; };
+		B79DE8E721103A070037C215 /* KETSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79DE8E521103A070037C215 /* KETSplashScreenViewController.swift */; };
+		B79DE8E821103A070037C215 /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79DE8E621103A070037C215 /* splash.storyboard */; };
+		B7A73E93210ED8CD00A6AE65 /* KETViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A73E92210ED8CD00A6AE65 /* KETViewUtils.swift */; };
+		B7A9D46B210F441700CAAFAA /* KETStepProgressBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9D46A210F441700CAAFAA /* KETStepProgressBarTableViewCell.swift */; };
+		B7A9D46E210F443B00CAAFAA /* KETTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9D46C210F443B00CAAFAA /* KETTextFieldTableViewCell.swift */; };
+		B7A9D46F210F443B00CAAFAA /* textfieldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7A9D46D210F443B00CAAFAA /* textfieldcell.xib */; };
+		B7A9D471210F447900CAAFAA /* KETButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9D470210F447900CAAFAA /* KETButtonTableViewCell.swift */; };
+		B7A9D473210F4A9300CAAFAA /* KETDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A9D472210F4A9300CAAFAA /* KETDocument.swift */; };
 		B7C31550210C26870024AC63 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3154F210C26870024AC63 /* TextField+Extension.swift */; };
+		B7C5ECAD210DA59600FC345A /* KETCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5ECAC210DA59600FC345A /* KETCategory.swift */; };
 		B7D2C70F2108B42C00D8C2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D2C70E2108B42C00D8C2D8 /* AppDelegate.swift */; };
 		B7D2C7162108B42C00D8C2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7D2C7152108B42C00D8C2D8 /* Assets.xcassets */; };
 		B7D2C7192108B42C00D8C2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7D2C7172108B42C00D8C2D8 /* LaunchScreen.storyboard */; };
@@ -47,8 +56,6 @@
 		A72E13281F05ABFC71E5BA34 /* Pods-KhmerDek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhmerDek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek.debug.xcconfig"; sourceTree = "<group>"; };
 		A75EABCCAF912EBF8722F078 /* Pods_KhmerDek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KhmerDek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7158F082108F17600E7CAC2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7158F102108F17700E7CAC2 /* phonenumber.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phonenumber.storyboard; sourceTree = "<group>"; };
-		B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETPhoneNumberRiderViewController.swift; sourceTree = "<group>"; };
 		B7158F172108F17700E7CAC2 /* KETColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETColorUtils.swift; sourceTree = "<group>"; };
 		B7158F192108F17700E7CAC2 /* KETConstantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETConstantViewController.swift; sourceTree = "<group>"; };
 		B7158F1B2108F17700E7CAC2 /* KETNavigationBarUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETNavigationBarUtils.swift; sourceTree = "<group>"; };
@@ -60,7 +67,9 @@
 		B7158F46210918D800E7CAC2 /* KETRegisterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETRegisterHelper.swift; sourceTree = "<group>"; };
 		B7158F4921094AB500E7CAC2 /* KETSMSCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETSMSCodeViewController.swift; sourceTree = "<group>"; };
 		B7158F4A21094AB500E7CAC2 /* smscode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = smscode.xib; sourceTree = "<group>"; };
-		B7719282210A38090074F8E5 /* phonedriver.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phonedriver.storyboard; sourceTree = "<group>"; };
+		B71ED5BD210E0D6F00646692 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		B71ED5BE210E0D6F00646692 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		B7719282210A38090074F8E5 /* phone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phone.storyboard; sourceTree = "<group>"; };
 		B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETPhoneNumberDriverViewController.swift; sourceTree = "<group>"; };
 		B771928A210A3D5F0074F8E5 /* KETReferencdCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETReferencdCodeViewController.swift; sourceTree = "<group>"; };
 		B771928B210A3D5F0074F8E5 /* refcode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refcode.storyboard; sourceTree = "<group>"; };
@@ -74,7 +83,16 @@
 		B77CBD5C210B569D005040A4 /* KETCountryCodePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETCountryCodePopupViewController.swift; sourceTree = "<group>"; };
 		B77CBD5F210B6767005040A4 /* searchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "searchBar+Extension.swift"; sourceTree = "<group>"; };
 		B77CBD69210B7ADC005040A4 /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Popover.swift; sourceTree = "<group>"; };
+		B79DE8E521103A070037C215 /* KETSplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KETSplashScreenViewController.swift; sourceTree = "<group>"; };
+		B79DE8E621103A070037C215 /* splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = splash.storyboard; sourceTree = "<group>"; };
+		B7A73E92210ED8CD00A6AE65 /* KETViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETViewUtils.swift; sourceTree = "<group>"; };
+		B7A9D46A210F441700CAAFAA /* KETStepProgressBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETStepProgressBarTableViewCell.swift; sourceTree = "<group>"; };
+		B7A9D46C210F443B00CAAFAA /* KETTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		B7A9D46D210F443B00CAAFAA /* textfieldcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = textfieldcell.xib; sourceTree = "<group>"; };
+		B7A9D470210F447900CAAFAA /* KETButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETButtonTableViewCell.swift; sourceTree = "<group>"; };
+		B7A9D472210F4A9300CAAFAA /* KETDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETDocument.swift; sourceTree = "<group>"; };
 		B7C3154F210C26870024AC63 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
+		B7C5ECAC210DA59600FC345A /* KETCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KETCategory.swift; sourceTree = "<group>"; };
 		B7D2C70B2108B42C00D8C2D8 /* KhmerDek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KhmerDek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D2C70E2108B42C00D8C2D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7D2C7152108B42C00D8C2D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +140,9 @@
 		B7158F062108F17600E7CAC2 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				B71ED5BC210E0D6F00646692 /* countrycode */,
+				B7C5ECAC210DA59600FC345A /* KETCategory.swift */,
+				B7A9D472210F4A9300CAAFAA /* KETDocument.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -144,6 +165,7 @@
 		B7158F0B2108F17700E7CAC2 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B79DE8E421103A070037C215 /* splashscreen */,
 				B7158F0C2108F17700E7CAC2 /* register */,
 			);
 			path = view;
@@ -176,23 +198,14 @@
 			children = (
 				B77CBD59210B562F005040A4 /* countrycod_popup */,
 				B7158F4821094A8E00E7CAC2 /* smscode */,
-				B7158F0F2108F17700E7CAC2 /* phonenumber */,
 			);
 			path = rider;
-			sourceTree = "<group>";
-		};
-		B7158F0F2108F17700E7CAC2 /* phonenumber */ = {
-			isa = PBXGroup;
-			children = (
-				B7158F102108F17700E7CAC2 /* phonenumber.storyboard */,
-				B7158F112108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift */,
-			);
-			path = phonenumber;
 			sourceTree = "<group>";
 		};
 		B7158F152108F17700E7CAC2 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				B7A73E91210ED8BB00A6AE65 /* view */,
 				B7C3154E210C26610024AC63 /* textfield */,
 				B77CBD5E210B6745005040A4 /* searchbar */,
 				B7158F162108F17700E7CAC2 /* color */,
@@ -255,11 +268,20 @@
 			path = smscode;
 			sourceTree = "<group>";
 		};
+		B71ED5BC210E0D6F00646692 /* countrycode */ = {
+			isa = PBXGroup;
+			children = (
+				B71ED5BD210E0D6F00646692 /* Countries.swift */,
+				B71ED5BE210E0D6F00646692 /* Country.swift */,
+			);
+			path = countrycode;
+			sourceTree = "<group>";
+		};
 		B7719281210A38090074F8E5 /* phone */ = {
 			isa = PBXGroup;
 			children = (
 				B7719286210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift */,
-				B7719282210A38090074F8E5 /* phonedriver.storyboard */,
+				B7719282210A38090074F8E5 /* phone.storyboard */,
 			);
 			path = phone;
 			sourceTree = "<group>";
@@ -294,6 +316,7 @@
 		B77CBD54210AEC78005040A4 /* document */ = {
 			isa = PBXGroup;
 			children = (
+				B7A9D469210F43E300CAAFAA /* documentcell */,
 				B77CBD55210AEC93005040A4 /* KETDoumentDriverViewController.swift */,
 				B77CBD57210AECA9005040A4 /* document.storyboard */,
 			);
@@ -323,6 +346,34 @@
 				B77CBD69210B7ADC005040A4 /* Popover.swift */,
 			);
 			path = popover;
+			sourceTree = "<group>";
+		};
+		B79DE8E421103A070037C215 /* splashscreen */ = {
+			isa = PBXGroup;
+			children = (
+				B79DE8E521103A070037C215 /* KETSplashScreenViewController.swift */,
+				B79DE8E621103A070037C215 /* splash.storyboard */,
+			);
+			path = splashscreen;
+			sourceTree = "<group>";
+		};
+		B7A73E91210ED8BB00A6AE65 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				B7A73E92210ED8CD00A6AE65 /* KETViewUtils.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		B7A9D469210F43E300CAAFAA /* documentcell */ = {
+			isa = PBXGroup;
+			children = (
+				B7A9D46A210F441700CAAFAA /* KETStepProgressBarTableViewCell.swift */,
+				B7A9D470210F447900CAAFAA /* KETButtonTableViewCell.swift */,
+				B7A9D46D210F443B00CAAFAA /* textfieldcell.xib */,
+				B7A9D46C210F443B00CAAFAA /* KETTextFieldTableViewCell.swift */,
+			);
+			path = documentcell;
 			sourceTree = "<group>";
 		};
 		B7C3154E210C26610024AC63 /* textfield */ = {
@@ -435,12 +486,13 @@
 				B77CBD58210AECA9005040A4 /* document.storyboard in Resources */,
 				B7D2C7162108B42C00D8C2D8 /* Assets.xcassets in Resources */,
 				B7158F212108F17700E7CAC2 /* Info.plist in Resources */,
+				B79DE8E821103A070037C215 /* splash.storyboard in Resources */,
 				B7719294210A44DF0074F8E5 /* vechicle_information.storyboard in Resources */,
-				B7158F222108F17700E7CAC2 /* phonenumber.storyboard in Resources */,
 				B77CBD5B210B5676005040A4 /* country_code.storyboard in Resources */,
-				B7719284210A38090074F8E5 /* phonedriver.storyboard in Resources */,
+				B7719284210A38090074F8E5 /* phone.storyboard in Resources */,
 				B7158F4C21094AB500E7CAC2 /* smscode.xib in Resources */,
 				B7158F4021090BBB00E7CAC2 /* .gitkeep in Resources */,
+				B7A9D46F210F443B00CAAFAA /* textfieldcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,11 +524,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KhmerDek/Pods-KhmerDek-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
+				"${BUILT_PRODUCTS_DIR}/CountryList/CountryList.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryList.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -505,6 +557,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79DE8E721103A070037C215 /* KETSplashScreenViewController.swift in Sources */,
+				B7A9D46B210F441700CAAFAA /* KETStepProgressBarTableViewCell.swift in Sources */,
+				B71ED5BF210E0D6F00646692 /* Countries.swift in Sources */,
 				B7719287210A393A0074F8E5 /* KETPhoneNumberDriverViewController.swift in Sources */,
 				B7158F262108F17700E7CAC2 /* KETColorUtils.swift in Sources */,
 				B7158F4121090BBB00E7CAC2 /* CGPoint+JK.swift in Sources */,
@@ -513,6 +568,8 @@
 				B7719291210A3D8A0074F8E5 /* KETDriverInformationViewController.swift in Sources */,
 				B7158F272108F17700E7CAC2 /* KETConstantViewController.swift in Sources */,
 				B77CBD6A210B7ADC005040A4 /* Popover.swift in Sources */,
+				B71ED5C0210E0D6F00646692 /* Country.swift in Sources */,
+				B7A9D473210F4A9300CAAFAA /* KETDocument.swift in Sources */,
 				B7158F4421090BBB00E7CAC2 /* UIImage+UIColor.swift in Sources */,
 				B7158F4221090BBB00E7CAC2 /* NSAttributedString+JK.swift in Sources */,
 				B77CBD5D210B569D005040A4 /* KETCountryCodePopupViewController.swift in Sources */,
@@ -520,10 +577,13 @@
 				B77CBD56210AEC93005040A4 /* KETDoumentDriverViewController.swift in Sources */,
 				B7158F4321090BBB00E7CAC2 /* SteppedProgressBar.swift in Sources */,
 				B7158F4B21094AB500E7CAC2 /* KETSMSCodeViewController.swift in Sources */,
-				B7158F232108F17700E7CAC2 /* KETPhoneNumberRiderViewController.swift in Sources */,
+				B7A9D471210F447900CAAFAA /* KETButtonTableViewCell.swift in Sources */,
 				B7158F282108F17700E7CAC2 /* KETNavigationBarUtils.swift in Sources */,
+				B7A9D46E210F443B00CAAFAA /* KETTextFieldTableViewCell.swift in Sources */,
 				B7C31550210C26870024AC63 /* TextField+Extension.swift in Sources */,
 				B7D2C70F2108B42C00D8C2D8 /* AppDelegate.swift in Sources */,
+				B7A73E93210ED8CD00A6AE65 /* KETViewUtils.swift in Sources */,
+				B7C5ECAD210DA59600FC345A /* KETCategory.swift in Sources */,
 				B77CBD60210B6767005040A4 /* searchBar+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,6 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RPCX3Q42;
 				INFOPLIST_FILE = KhmerDek/supportingfiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julie.ma.com.KhmerDek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -673,6 +734,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2RPCX3Q42;
 				INFOPLIST_FILE = KhmerDek/supportingfiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = julie.ma.com.KhmerDek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
