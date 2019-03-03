@@ -12,4 +12,5 @@ class KETDocument: NSObject {
     var id:String?
     var title:String?
     var value:String?
+    var descriptions: String?
 }
